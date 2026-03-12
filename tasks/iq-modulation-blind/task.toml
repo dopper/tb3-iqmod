@@ -10,19 +10,6 @@ tags = ["dsp", "iq", "modulation", "classification"]
 [verifier]
 timeout_sec = 1200.0
 
-[verifier.env]
-# The verifier uses the container's system-wide Python/NumPy stack rather than a per-run uv venv.
-# Use a deterministic default verifier seed so Harbor runs succeed even when the host
-# environment does not provide one.
-#
-# Note: values of the form "${NAME}" are resolved by Harbor from the *host* environment at
-# verify time.
-# If you're running Harbor and haven't set `TB_IQ_EVAL_SEED` on the host, Harbor will use the
-# default value below. Export `TB_IQ_EVAL_SEED` to override it for a run.
-# If you run the verifier directly (not via Harbor), set/unset `TB_IQ_EVAL_SEED` in your shell;
-# the verifier falls back to the same deterministic default when the variable is missing/empty.
-TB_IQ_EVAL_SEED = "${TB_IQ_EVAL_SEED:-tb3-iqmod-default-seed-v1}"
-
 [agent]
 timeout_sec = 900.0
 
